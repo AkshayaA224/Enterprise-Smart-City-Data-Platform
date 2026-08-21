@@ -1,6 +1,6 @@
 # 🏙️ Enterprise Smart City Data Platform (ESCDP)
 
-> An enterprise-grade data engineering platform for integrating, processing, validating, transforming, and warehousing heterogeneous smart-city data to support analytics and decision-making.
+An enterprise-grade data engineering platform for integrating, processing, validating, transforming, and warehousing heterogeneous smart-city data to support analytics and decision-making.
 
 ---
 
