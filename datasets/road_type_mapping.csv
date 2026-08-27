@@ -1,0 +1,32 @@
+motorway,highway2l2w,source_system,source_file,etl_loaded_at
+motorway_oneway,Rural Highway,GeoSkylines_Olomouc,rwo_cs_road_match.csv,2026-08-19 13:58:07.384394+00:00
+trunk,Highway2L2W,GeoSkylines_Olomouc,rwo_cs_road_match.csv,2026-08-19 13:58:07.384394+00:00
+trunk_oneway,Rural Highway,GeoSkylines_Olomouc,rwo_cs_road_match.csv,2026-08-19 13:58:07.384394+00:00
+primary,Small Avenue,GeoSkylines_Olomouc,rwo_cs_road_match.csv,2026-08-19 13:58:07.384394+00:00
+primary_oneway,Oneway Road,GeoSkylines_Olomouc,rwo_cs_road_match.csv,2026-08-19 13:58:07.384394+00:00
+secondary,Small Avenue,GeoSkylines_Olomouc,rwo_cs_road_match.csv,2026-08-19 13:58:07.384394+00:00
+secondary_oneway,One-Lane Oneway,GeoSkylines_Olomouc,rwo_cs_road_match.csv,2026-08-19 13:58:07.384394+00:00
+tertiary,Basic Road,GeoSkylines_Olomouc,rwo_cs_road_match.csv,2026-08-19 13:58:07.384394+00:00
+tertiary_oneway,One-Lane Oneway,GeoSkylines_Olomouc,rwo_cs_road_match.csv,2026-08-19 13:58:07.384394+00:00
+unclassified,Basic Road,GeoSkylines_Olomouc,rwo_cs_road_match.csv,2026-08-19 13:58:07.384394+00:00
+unclassified_oneway,One-Lane Oneway,GeoSkylines_Olomouc,rwo_cs_road_match.csv,2026-08-19 13:58:07.384394+00:00
+residential,Basic Road,GeoSkylines_Olomouc,rwo_cs_road_match.csv,2026-08-19 13:58:07.384394+00:00
+residential_oneway,One-Lane Oneway,GeoSkylines_Olomouc,rwo_cs_road_match.csv,2026-08-19 13:58:07.384394+00:00
+service,,GeoSkylines_Olomouc,rwo_cs_road_match.csv,2026-08-19 13:58:07.384394+00:00
+motorway_link,HighwayRamp,GeoSkylines_Olomouc,rwo_cs_road_match.csv,2026-08-19 13:58:07.384394+00:00
+trunk_link,HighwayRamp,GeoSkylines_Olomouc,rwo_cs_road_match.csv,2026-08-19 13:58:07.384394+00:00
+primary_link,Oneway Road,GeoSkylines_Olomouc,rwo_cs_road_match.csv,2026-08-19 13:58:07.384394+00:00
+secondary_link,One-Lane Oneway,GeoSkylines_Olomouc,rwo_cs_road_match.csv,2026-08-19 13:58:07.384394+00:00
+tertiary_link,One-Lane Oneway,GeoSkylines_Olomouc,rwo_cs_road_match.csv,2026-08-19 13:58:07.384394+00:00
+living_street,Oneway Road Decoration Grass,GeoSkylines_Olomouc,rwo_cs_road_match.csv,2026-08-19 13:58:07.384394+00:00
+pedestrian,,GeoSkylines_Olomouc,rwo_cs_road_match.csv,2026-08-19 13:58:07.384394+00:00
+track,,GeoSkylines_Olomouc,rwo_cs_road_match.csv,2026-08-19 13:58:07.384394+00:00
+bus_guideway,,GeoSkylines_Olomouc,rwo_cs_road_match.csv,2026-08-19 13:58:07.384394+00:00
+escape,,GeoSkylines_Olomouc,rwo_cs_road_match.csv,2026-08-19 13:58:07.384394+00:00
+raceway,,GeoSkylines_Olomouc,rwo_cs_road_match.csv,2026-08-19 13:58:07.384394+00:00
+road,Basic Road,GeoSkylines_Olomouc,rwo_cs_road_match.csv,2026-08-19 13:58:07.384394+00:00
+road_oneway,One-Lane Oneway,GeoSkylines_Olomouc,rwo_cs_road_match.csv,2026-08-19 13:58:07.384394+00:00
+footway,,GeoSkylines_Olomouc,rwo_cs_road_match.csv,2026-08-19 13:58:07.384394+00:00
+bridleway,,GeoSkylines_Olomouc,rwo_cs_road_match.csv,2026-08-19 13:58:07.384394+00:00
+steps,,GeoSkylines_Olomouc,rwo_cs_road_match.csv,2026-08-19 13:58:07.384394+00:00
+path,,GeoSkylines_Olomouc,rwo_cs_road_match.csv,2026-08-19 13:58:07.384394+00:00
