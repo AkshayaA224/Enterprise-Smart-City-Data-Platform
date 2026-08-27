@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='utf-8'?>
+<service_type_mappings>
+    <service_type_mapping>
+        <fire_station>school</fire_station>
+        <fire_station_1>Elementary School</fire_station_1>
+        <source_system>GeoSkylines_Olomouc</source_system>
+        <source_file>rwo_cs_service_match.csv</source_file>
+        <etl_loaded_at>2026-08-19 13:58:07.401225+00:00</etl_loaded_at>
+    </service_type_mapping>
+    <service_type_mapping>
+        <fire_station>university</fire_station>
+        <fire_station_1>University</fire_station_1>
+        <source_system>GeoSkylines_Olomouc</source_system>
+        <source_file>rwo_cs_service_match.csv</source_file>
+        <etl_loaded_at>2026-08-19 13:58:07.401225+00:00</etl_loaded_at>
+    </service_type_mapping>
+    <service_type_mapping>
+        <fire_station>library</fire_station>
+        <fire_station_1>Library 01</fire_station_1>
+        <source_system>GeoSkylines_Olomouc</source_system>
+        <source_file>rwo_cs_service_match.csv</source_file>
+        <etl_loaded_at>2026-08-19 13:58:07.401225+00:00</etl_loaded_at>
+    </service_type_mapping>
+    <service_type_mapping>
+        <fire_station>hospital</fire_station>
+        <fire_station_1>Hospital</fire_station_1>
+        <source_system>GeoSkylines_Olomouc</source_system>
+        <source_file>rwo_cs_service_match.csv</source_file>
+        <etl_loaded_at>2026-08-19 13:58:07.401225+00:00</etl_loaded_at>
+    </service_type_mapping>
+    <service_type_mapping>
+        <fire_station>clinic</fire_station>
+        <fire_station_1>Medical Clinic</fire_station_1>
+        <source_system>GeoSkylines_Olomouc</source_system>
+        <source_file>rwo_cs_service_match.csv</source_file>
+        <etl_loaded_at>2026-08-19 13:58:07.401225+00:00</etl_loaded_at>
+    </service_type_mapping>
+    <service_type_mapping>
+        <fire_station>doctors</fire_station>
+        <fire_station_1>Medical Center</fire_station_1>
+        <source_system>GeoSkylines_Olomouc</source_system>
+        <source_file>rwo_cs_service_match.csv</source_file>
+        <etl_loaded_at>2026-08-19 13:58:07.401225+00:00</etl_loaded_at>
+    </service_type_mapping>
+    <service_type_mapping>
+        <fire_station>grave_yard</fire_station>
+        <fire_station_1>Cemetery</fire_station_1>
+        <source_system>GeoSkylines_Olomouc</source_system>
+        <source_file>rwo_cs_service_match.csv</source_file>
+        <etl_loaded_at>2026-08-19 13:58:07.401225+00:00</etl_loaded_at>
+    </service_type_mapping>
+    <service_type_mapping>
+        <fire_station>crematorium</fire_station>
+        <fire_station_1>Crematory</fire_station_1>
+        <source_system>GeoSkylines_Olomouc</source_system>
+        <source_file>rwo_cs_service_match.csv</source_file>
+        <etl_loaded_at>2026-08-19 13:58:07.401225+00:00</etl_loaded_at>
+    </service_type_mapping>
+</service_type_mappings>
