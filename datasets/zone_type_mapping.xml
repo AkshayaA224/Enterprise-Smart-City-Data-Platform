@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='utf-8'?>
+<zone_type_mappings>
+    <zone_type_mapping>
+        <bytovacom_res_indhigh>Bytovacommercialhigh</bytovacom_res_indhigh>
+        <residentialhigh>CommercialHigh</residentialhigh>
+        <source_system>GeoSkylines_Olomouc</source_system>
+        <source_file>rwo_cs_zone_match.csv</source_file>
+        <etl_loaded_at>2026-08-19 13:58:07.431752+00:00</etl_loaded_at>
+    </zone_type_mapping>
+    <zone_type_mapping>
+        <bytovacom_res_indhigh>Bytovaemptyhigh</bytovacom_res_indhigh>
+        <residentialhigh />
+        <source_system>GeoSkylines_Olomouc</source_system>
+        <source_file>rwo_cs_zone_match.csv</source_file>
+        <etl_loaded_at>2026-08-19 13:58:07.431752+00:00</etl_loaded_at>
+    </zone_type_mapping>
+    <zone_type_mapping>
+        <bytovacom_res_indhigh>Bytovahigh</bytovacom_res_indhigh>
+        <residentialhigh>ResidentialHigh</residentialhigh>
+        <source_system>GeoSkylines_Olomouc</source_system>
+        <source_file>rwo_cs_zone_match.csv</source_file>
+        <etl_loaded_at>2026-08-19 13:58:07.431752+00:00</etl_loaded_at>
+    </zone_type_mapping>
+    <zone_type_mapping>
+        <bytovacom_res_indhigh>Bytovaresidentalhigh</bytovacom_res_indhigh>
+        <residentialhigh>ResidentialHigh</residentialhigh>
+        <source_system>GeoSkylines_Olomouc</source_system>
+        <source_file>rwo_cs_zone_match.csv</source_file>
+        <etl_loaded_at>2026-08-19 13:58:07.431752+00:00</etl_loaded_at>
+    </zone_type_mapping>
+    <zone_type_mapping>
+        <bytovacom_res_indhigh>Obcanska vybavenos</bytovacom_res_indhigh>
+        <residentialhigh />
+        <source_system>GeoSkylines_Olomouc</source_system>
+        <source_file>rwo_cs_zone_match.csv</source_file>
+        <etl_loaded_at>2026-08-19 13:58:07.431752+00:00</etl_loaded_at>
+    </zone_type_mapping>
+    <zone_type_mapping>
+        <bytovacom_res_indhigh>Obcanska vybavenosCom/res/ind</bytovacom_res_indhigh>
+        <residentialhigh>CommercialLow</residentialhigh>
+        <source_system>GeoSkylines_Olomouc</source_system>
+        <source_file>rwo_cs_zone_match.csv</source_file>
+        <etl_loaded_at>2026-08-19 13:58:07.431752+00:00</etl_loaded_at>
+    </zone_type_mapping>
+    <zone_type_mapping>
+        <bytovacom_res_indhigh>Obcanska vybavenoscommercial</bytovacom_res_indhigh>
+        <residentialhigh>CommercialLow</residentialhigh>
+        <source_system>GeoSkylines_Olomouc</source_system>
+        <source_file>rwo_cs_zone_match.csv</source_file>
+        <etl_loaded_at>2026-08-19 13:58:07.431752+00:00</etl_loaded_at>
+    </zone_type_mapping>
+    <zone_type_mapping>
+        <bytovacom_res_indhigh>Obcanska vybavenosindustrial</bytovacom_res_indhigh>
+        <residentialhigh>Industrial</residentialhigh>
+        <source_system>GeoSkylines_Olomouc</source_system>
+        <source_file>rwo_cs_zone_match.csv</source_file>
+        <etl_loaded_at>2026-08-19 13:58:07.431752+00:00</etl_loaded_at>
+    </zone_type_mapping>
+    <zone_type_mapping>
+        <bytovacom_res_indhigh>Obcanska vybavenosoffice</bytovacom_res_indhigh>
+        <residentialhigh>Office</residentialhigh>
+        <source_system>GeoSkylines_Olomouc</source_system>
+        <source_file>rwo_cs_zone_match.csv</source_file>
+        <etl_loaded_at>2026-08-19 13:58:07.431752+00:00</etl_loaded_at>
+    </zone_type_mapping>
+    <zone_type_mapping>
+        <bytovacom_res_indhigh>Obcanska vybavenosresidental</bytovacom_res_indhigh>
+        <residentialhigh>ResidentialLow</residentialhigh>
+        <source_system>GeoSkylines_Olomouc</source_system>
+        <source_file>rwo_cs_zone_match.csv</source_file>
+        <etl_loaded_at>2026-08-19 13:58:07.431752+00:00</etl_loaded_at>
+    </zone_type_mapping>
+    <zone_type_mapping>
+        <bytovacom_res_indhigh>RDCom/res/indLow</bytovacom_res_indhigh>
+        <residentialhigh>ResidentialLow</residentialhigh>
+        <source_system>GeoSkylines_Olomouc</source_system>
+        <source_file>rwo_cs_zone_match.csv</source_file>
+        <etl_loaded_at>2026-08-19 13:58:07.431752+00:00</etl_loaded_at>
+    </zone_type_mapping>
+    <zone_type_mapping>
+        <bytovacom_res_indhigh>RDcommercialLow</bytovacom_res_indhigh>
+        <residentialhigh>CommercialLow</residentialhigh>
+        <source_system>GeoSkylines_Olomouc</source_system>
+        <source_file>rwo_cs_zone_match.csv</source_file>
+        <etl_loaded_at>2026-08-19 13:58:07.431752+00:00</etl_loaded_at>
+    </zone_type_mapping>
+    <zone_type_mapping>
+        <bytovacom_res_indhigh>RDLow</bytovacom_res_indhigh>
+        <residentialhigh>ResidentialLow</residentialhigh>
+        <source_system>GeoSkylines_Olomouc</source_system>
+        <source_file>rwo_cs_zone_match.csv</source_file>
+        <etl_loaded_at>2026-08-19 13:58:07.431752+00:00</etl_loaded_at>
+    </zone_type_mapping>
+    <zone_type_mapping>
+        <bytovacom_res_indhigh>RDresidentalLow</bytovacom_res_indhigh>
+        <residentialhigh>ResidentialLow</residentialhigh>
+        <source_system>GeoSkylines_Olomouc</source_system>
+        <source_file>rwo_cs_zone_match.csv</source_file>
+        <etl_loaded_at>2026-08-19 13:58:07.431752+00:00</etl_loaded_at>
+    </zone_type_mapping>
+</zone_type_mappings>
