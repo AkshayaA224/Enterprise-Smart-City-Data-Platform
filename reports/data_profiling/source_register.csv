@@ -1,0 +1,11 @@
+﻿dataset_name,file_name,format,record_count,source_url,source_verified,notes
+Citizen Services,citizen_services.csv,CSV,555892,,,Official source URL to verify
+Electricity,electricity.csv,CSV,6378,,,Official source URL to verify
+Emergency,emergency.xml,XML,11750,,,Official source URL to verify
+Environment,environment.csv,CSV,19827,,,Official source URL to verify
+Parking,parking.json,JSON,1000,,,Real-world origin must be verified
+Property Tax,property_tax.csv,CSV,411168,,,Official source URL to verify
+Traffic,traffic.csv,CSV,42756,,,Official source URL to verify
+Transport,transport.csv,CSV,9343,,,Official source URL to verify
+Waste,waste.csv,CSV,2124,,,Official source URL to verify
+Water,water.csv,CSV,3109,,,Official source URL to verify
