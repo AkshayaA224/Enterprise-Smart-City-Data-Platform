@@ -1,0 +1,24 @@
+# Citizen Services ETL Validation Report
+
+## Source and Target
+- Source table: `staging.citizen_services`
+- Target table: `warehouse.citizen_services`
+- Source format: CSV, ingested into PostgreSQL as JSONB
+- ETL tool: Pentaho Data Integration (Spoon)
+
+## Validation Results
+- Staging records: 555,892
+- Warehouse records: 555,892
+- Distinct warehouse record IDs: 555,892
+- Missing staging records in warehouse: 0
+- Duplicate warehouse record IDs: 0
+- Invalid latitudes: 0
+- Invalid longitudes: 0
+- Missing requested timestamps: 0
+- Missing load timestamps: 0
+
+## Timestamp Validation
+Source timestamps with a UTC offset were converted to PostgreSQL `TIMESTAMPTZ`. The warehouse displays timestamps in the database session timezone (UTC+05:30). Empty closing timestamps were stored as NULL.
+
+## Status
+Record reconciliation and the selected data-quality checks passed. The earlier Spoon execution-log count discrepancy remains unexplained and should be investigated separately.
