@@ -1,0 +1,11 @@
+﻿dataset_name,file_name,format,record_count,source_url,source_verified,notes
+Citizen Services,citizen_services.csv,CSV,555892,,No,Original source not yet identified
+Electricity,electricity.csv,CSV,6378,https://ourworldindata.org/grapher/electricity-mix?frequency=annual&metric=demand&source=total,Yes,Electricity demand dataset
+Emergency,emergency.xml,XML,11750,https://data.cityofnewyork.us/Public-Safety/Emergency-Response-Incidents/pasr-j7fb,Partial,Official source has an additional Closed Date field
+Environment,environment.csv,CSV,19827,https://data.cityofnewyork.us/Environment/Air-Quality-and-Health-Impacts/c3uy-2p5r,Yes,Column names and row count match
+Parking,parking.json,JSON,1000,,No,Original source not yet identified; verify before using as real-world data
+Property Tax,property_tax.csv,CSV,411168,https://data.cityofnewyork.us/City-Government/Property-Valuation-and-Assessment-Data-Tax-Classes/8y4t-faws,Yes,139 columns match; local file contains a subset
+Traffic,traffic.csv,CSV,42756,https://data.cityofnewyork.us/Transportation/Traffic-Volume-Counts-Historical-/btm5-ppia,Yes,Column names and row count match
+Transport,transport.csv,CSV,9343,https://data.cityofchicago.org/Transportation/CTA-Ridership-Daily-Boarding-Totals/6iiy-9s97,Yes,Column names match; row count may reflect a different snapshot
+Waste,waste.csv,CSV,2124,https://data.cityofnewyork.us/City-Government/dsny_garbage_2015-present/mk63-gnmv,Yes,Column names and row count match
+Water,water.csv,CSV,3109,https://www.usgs.gov/data/2010-county-and-city-level-water-use-data-and-associated-explanatory-variables,Partial,Row count matches county-level data; compare all headers with original
