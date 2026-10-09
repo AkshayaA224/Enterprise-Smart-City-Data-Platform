@@ -1,4 +1,4 @@
-﻿import csv
+import csv
 import json
 import xml.etree.ElementTree as ET
 from pathlib import Path
@@ -7,20 +7,28 @@ RAW = Path("data/raw")
 OUTPUT = Path("reports/data_profiling/data_dictionary.csv")
 
 def infer_type(values):
-    values = [v.strip() for v in values if v is not None and str(v).strip()]
+    values = [
+        v for v in values
+        if v is not None and str(v).strip()
+    ]
     if not values:
         return "unknown"
+
+    if all(isinstance(v, bool) for v in values):
+        return "boolean"
+
     try:
         for v in values:
-            int(v)
+            int(str(v).strip())
         return "integer"
-    except ValueError:
+    except (ValueError, TypeError):
         pass
+
     try:
         for v in values:
-            float(v)
+            float(str(v).strip())
         return "numeric"
-    except ValueError:
+    except (ValueError, TypeError):
         return "string"
 
 def csv_columns(path):
