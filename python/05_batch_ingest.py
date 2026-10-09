@@ -1,3 +1,4 @@
+
 import csv
 import getpass
 import hashlib
@@ -9,7 +10,7 @@ import psycopg2
 from psycopg2.extras import Json
 
 RAW = Path("data/raw")
-BATCH_SIZE = 100
+BATCH_SIZE = 1000
 
 DATASETS = {
     "citizen_services": ("citizen_services.csv", "csv"),
@@ -24,9 +25,53 @@ DATASETS = {
     "water": ("water.csv", "csv"),
 }
 
+
+def file_fingerprint(path):
+    digest = hashlib.sha256()
+
+    with path.open("rb") as source:
+        for chunk in iter(lambda: source.read(1024 * 1024), b""):
+            digest.update(chunk)
+
+    return digest.hexdigest()
+
+
+def verify_source_baseline(conn, dataset, filename, fingerprint):
+    with conn.cursor() as cur:
+        cur.execute(
+            """
+            SELECT source_filename, source_fingerprint
+            FROM audit.source_file_baselines
+            WHERE dataset_name = %s
+            """,
+            (dataset,),
+        )
+        baseline = cur.fetchone()
+
+    if baseline is None:
+        raise ValueError(
+            f"No approved fingerprint baseline for {dataset}"
+        )
+
+    approved_filename, approved_fingerprint = baseline
+
+    if approved_filename != filename:
+        raise ValueError(
+            f"Filename mismatch: expected {approved_filename}, "
+            f"got {filename}"
+        )
+
+    if approved_fingerprint != fingerprint:
+        raise ValueError(
+            "Source fingerprint mismatch. Review and approve "
+            "the new source version before ingestion."
+        )
+
+
 def csv_records(path):
     with path.open("r", encoding="utf-8-sig", newline="") as f:
         yield from csv.DictReader(f)
+
 
 def json_records(path):
     with path.open("r", encoding="utf-8-sig") as f:
@@ -39,45 +84,67 @@ def json_records(path):
             if isinstance(data.get(key), list):
                 yield from data[key]
                 return
-        raise ValueError(
-            "JSON structure is not a list or a recognized records container."
-        )
+        raise ValueError("Unrecognized JSON record structure.")
     else:
         raise ValueError("Unsupported JSON root type.")
 
+
 def xml_records(path):
-    # This source uses <response><rows><row>...</row></rows></response>.
-    for event, element in ET.iterparse(path, events=("end",)):
+    for _, element in ET.iterparse(path, events=("end",)):
         if element.tag == "row":
-            yield {child.tag: child.text for child in element}
+            yield {
+                child.tag: child.text or ""
+                for child in element
+            }
             element.clear()
 
-def record_key(dataset, row):
+
+def get_records(path, file_format):
+    if file_format == "csv":
+        return csv_records(path)
+    if file_format == "json":
+        return json_records(path)
+    if file_format == "xml":
+        return xml_records(path)
+
+    raise ValueError(f"Unsupported format: {file_format}")
+
+
+def record_key(dataset, row, row_number):
+    # These datasets may contain legitimate repeated records.
+    row_based = {
+        "emergency",
+        "parking",
+        "property_tax",
+        "traffic",
+    }
+
+    if dataset in row_based:
+        return f"source:row:{row_number:09d}"
+
     key_fields = {
         "citizen_services": ["objectid"],
-        "electricity": ["Entity", "Code", "Year"],
-        "property_tax": ["PARID", "YEAR"],
-        "traffic": ["ID"],
+        "electricity": ["Entity", "Year"],
+        "environment": ["Unique ID"],
         "transport": ["service_date", "day_type"],
         "waste": ["MONTH", "BOROUGH", "COMMUNITYDISTRICT"],
-        "water": ["cnty_fips", "state"],
-    }.get(dataset)
+        "water": ["cnty_fips"],
+    }
 
-    if key_fields and all(
-        row.get(field) not in (None, "")
-        for field in key_fields
-    ):
-        return "|".join(str(row[field]).strip() for field in key_fields)
+    fields = key_fields.get(dataset, [])
+    values = [
+        str(row.get(field, "") or "").strip()
+        for field in fields
+    ]
 
-    import hashlib
-    import json
+    if fields and all(values):
+        return "key:" + json.dumps(
+            values, ensure_ascii=False, separators=(",", ":")
+        )
 
-    raw_key = json.dumps(
-        row, sort_keys=True, ensure_ascii=False, default=str
-    )
-    return hashlib.sha256(
-        f"{dataset}|{raw_key}".encode("utf-8")
-    ).hexdigest()
+    return f"source:row:{row_number:09d}"
+
+
 def main():
     password = getpass.getpass("PostgreSQL password: ")
 
@@ -92,6 +159,7 @@ def main():
     try:
         for dataset, (filename, file_format) in DATASETS.items():
             path = RAW / filename
+
             if not path.exists():
                 print(f"SKIPPED {dataset}: file not found")
                 continue
@@ -101,56 +169,115 @@ def main():
             rows_loaded = 0
 
             try:
-                if file_format == "csv":
-                    records = csv_records(path)
-                elif file_format == "json":
-                    records = json_records(path)
-                elif file_format == "xml":
-                    records = xml_records(path)
-                else:
-                    raise ValueError(f"Unsupported format: {file_format}")
+                fingerprint = file_fingerprint(path)
+
+                verify_source_baseline(
+                    conn, dataset, filename, fingerprint
+                )
+
+                # Commit the RUNNING audit entry separately.
+                with conn:
+                    with conn.cursor() as cur:
+                        cur.execute(
+                            """
+                            INSERT INTO audit.ingestion_runs
+                                (dataset_name, ingestion_type, status,
+                                 source_fingerprint)
+                            VALUES (%s, 'BATCH', 'RUNNING', %s)
+                            RETURNING run_id
+                            """,
+                            (dataset, fingerprint),
+                        )
+                        run_id = cur.fetchone()[0]
+
+                batch = []
+
+                def flush_batch():
+                    nonlocal rows_loaded
+
+                    if not batch:
+                        return
+
+                    batch_loaded = 0
+
+                    # Each batch and its progress update commit together.
+                    with conn:
+                        with conn.cursor() as cur:
+                            for row_number, row in batch:
+                                if not isinstance(row, dict):
+                                    raise ValueError(
+                                        f"Expected a dictionary record, "
+                                        f"got {type(row).__name__}"
+                                    )
+
+                                source_id = record_key(
+                                    dataset, row, row_number
+                                )
+
+                                cur.execute(
+                                    f"""
+                                    INSERT INTO staging.{dataset}
+                                        (source_data, source_record_id)
+                                    VALUES (%s, %s)
+                                    ON CONFLICT (source_record_id)
+                                    WHERE source_record_id IS NOT NULL
+                                    DO NOTHING
+                                    """,
+                                    (Json(row), source_id),
+                                )
+
+                                batch_loaded += cur.rowcount
+
+                            new_total = rows_loaded + batch_loaded
+
+                            cur.execute(
+                                """
+                                UPDATE audit.ingestion_runs
+                                SET rows_read = %s,
+                                    rows_loaded = %s
+                                WHERE run_id = %s
+                                """,
+                                (rows_read, new_total, run_id),
+                            )
+
+                    rows_loaded += batch_loaded
+                    batch.clear()
+
+                records = get_records(path, file_format)
+
+                for row_number, row in enumerate(records, start=1):
+                    rows_read += 1
+                    batch.append((row_number, row))
+
+                    if len(batch) >= BATCH_SIZE:
+                        flush_batch()
+
+                # Load the final batch, even if it has fewer than 1,000 rows.
+                flush_batch()
+
+                # Check that the source did not change during ingestion.
+                final_fingerprint = file_fingerprint(path)
+
+                if final_fingerprint != fingerprint:
+                    raise ValueError(
+                        "Source file changed during ingestion. "
+                        "Review the file before rerunning."
+                    )
 
                 with conn:
                     with conn.cursor() as cur:
-                        cur.execute("""
-                            INSERT INTO audit.ingestion_runs
-                                (dataset_name, ingestion_type, status)
-                            VALUES (%s, 'BATCH', 'RUNNING')
-                            RETURNING run_id
-                        """, (dataset,))
-                        run_id = cur.fetchone()[0]
-
-                        for row in records:
-                            if rows_read >= BATCH_SIZE:
-                                break
-
-                            if not isinstance(row, dict):
-                                raise ValueError(
-                                   f"Expected object/record, got {type(row).__name__}"
-                                )
-
-                            rows_read += 1
-
-                            source_id = record_key(dataset, row)
-                            cur.execute(f"""
-                                INSERT INTO staging.{dataset}
-                                    (source_data, source_record_id)
-                                VALUES (%s, %s)
-                                ON CONFLICT (source_record_id)
-                                WHERE source_record_id IS NOT NULL
-                                DO NOTHING
-                            """, (Json(row), source_id))
-
-                            rows_loaded += cur.rowcount
-
-                        cur.execute("""
+                        cur.execute(
+                            """
                             UPDATE audit.ingestion_runs
                             SET status = 'SUCCESS',
                                 rows_read = %s,
                                 rows_loaded = %s,
-                                completed_at = CURRENT_TIMESTAMP
+                                completed_at = CURRENT_TIMESTAMP,
+                                error_message = NULL
                             WHERE run_id = %s
-                        """, (rows_read, rows_loaded, run_id))
+                            """,
+                            (rows_read, rows_loaded, run_id),
+                        )
 
                 print(
                     f"SUCCESS {dataset}: read={rows_read}, "
@@ -160,10 +287,12 @@ def main():
 
             except Exception as exc:
                 conn.rollback()
+
                 if run_id is not None:
                     with conn:
                         with conn.cursor() as cur:
-                            cur.execute("""
+                            cur.execute(
+                                """
                                 UPDATE audit.ingestion_runs
                                 SET status = 'FAILED',
                                     rows_read = %s,
@@ -171,11 +300,23 @@ def main():
                                     error_message = %s,
                                     completed_at = CURRENT_TIMESTAMP
                                 WHERE run_id = %s
-                            """, (rows_read, rows_loaded, str(exc), run_id))
-                print(f"FAILED {dataset}: {exc}")
+                                """,
+                                (
+                                    rows_read,
+                                    rows_loaded,
+                                    str(exc)[:4000],
+                                    run_id,
+                                ),
+                            )
+
+                print(
+                    f"FAILED {dataset}: {exc}; "
+                    f"read={rows_read}, committed={rows_loaded}"
+                )
 
     finally:
         conn.close()
+
 
 if __name__ == "__main__":
     main()
