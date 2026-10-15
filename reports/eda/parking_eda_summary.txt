@@ -1,0 +1,68 @@
+PARKING DATA EDA SUMMARY
+===================================
+Rows: 1000
+Columns: 28
+Unique parking spots: 50
+Exact duplicate rows: 0
+Duplicate timestamps: 0
+Missing values: 0
+Zero-duration records: 53
+Negative-duration records: 0
+Occupancy rates outside 0-1: 0
+Negative payment amounts: 0
+Non-positive durations: 53
+
+Numeric summary:
+       Occupancy_Rate  Payment_Amount  Parking_Duration  Dynamic_Pricing_Factor  Weather_Temperature  Weather_Precipitation  Sensor_Reading_Proximity  Sensor_Reading_Pressure  Vehicle_Type_Weight  Vehicle_Type_Height  Sensor_Reading_Ultrasonic  Environmental_Noise_Level  Proximity_To_Exit  User_Parking_History
+count     1000.000000     1000.000000       1000.000000             1000.000000          1000.000000            1000.000000               1000.000000              1000.000000          1000.000000          1000.000000                1000.000000                1000.000000        1000.000000           1000.000000
+mean         0.283651       10.523831          2.874000                0.959500            19.803156               0.095000                  5.175569                 4.041883          1486.055775             4.985622                 100.454691                  50.371723           9.460142              5.143747
+std          0.160737       11.161643          1.627505                0.199272             5.200571               0.293362                  5.237664                 2.816151           303.834774             0.983682                  20.434327                   9.704702           9.584773              1.964876
+min          0.007868        0.009995          0.000000                0.800000             3.894918               0.000000                  0.016117                 0.051721           597.710298             1.823296                  42.011796                  20.147371           0.000055             -1.808973
+25%          0.159762        3.019274          2.000000                0.800000            16.255231               0.000000                  1.379257                 1.931423          1284.738158             4.332522                  86.555583                  43.418769           2.806029              3.785864
+50%          0.264776        7.013147          3.000000                0.800000            19.709048               0.000000                  3.656676                 3.458518          1486.160440             4.991352                  99.961915                  50.326930           6.685663              5.090943
+75%          0.386690       13.842037          4.000000                1.000000            23.483265               0.000000                  7.145284                 5.376865          1675.790880             5.660101                 114.307924                  56.898865          12.988156              6.429923
+max          0.792655       72.636819         10.000000                1.500000            37.645276               1.000000                 37.208615                27.220465          2472.927891             8.112910                 168.161014                  85.058714          84.654161             11.690949
+
+Categorical counts:
+
+User_Type:
+User_Type
+Registered    732
+Visitor       235
+Staff          33
+
+Nearby_Traffic_Level:
+Nearby_Traffic_Level
+Low       596
+Medium    303
+High      101
+
+Parking_Lot_Section:
+Parking_Lot_Section
+Zone A    382
+Zone B    307
+Zone C    197
+Zone D    114
+
+Payment_Status:
+Payment_Status
+Paid       690
+Unpaid     202
+Overdue    108
+
+Occupancy_Status:
+Occupancy_Status
+Occupied    550
+Vacant      450
+
+Vehicle_Type:
+Vehicle_Type
+Car                 704
+Motorcycle          191
+Electric Vehicle    105
+
+Spot_Size:
+Spot_Size
+Standard     712
+Compact      181
+Oversized    107

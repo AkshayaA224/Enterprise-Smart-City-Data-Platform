@@ -1,0 +1,25 @@
+ELECTRICITY DATA EDA SUMMARY
+===================================
+Rows: 6378
+Columns: 4
+Unique entities: 239
+Year range: 1990 to 2025
+Unique years: 36
+Exact duplicate rows: 0
+Duplicate Entity-Year pairs: 0
+Missing Entity values: 0
+Missing Code values: 322
+Missing Year values: 0
+Missing demand values: 0
+Negative demand values: 0
+Zero demand records: 24
+
+Demand statistics:
+count     6378.000000
+mean       647.694696
+std       2580.869884
+min          0.000000
+25%          1.540000
+50%         12.460000
+75%         93.567500
+max      31772.350000

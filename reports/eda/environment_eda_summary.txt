@@ -1,0 +1,65 @@
+ENVIRONMENT DATA EDA SUMMARY
+===================================
+Rows: 19827
+Columns: 12
+Unique indicators: 18
+Geographic types: 5
+Exact duplicate rows: 0
+Duplicate Unique IDs: 0
+Duplicate analytical combinations: 0
+
+Missing values by column:
+Unique ID             0
+Indicator ID          0
+Name                  0
+Measure               0
+Measure Info          0
+Geo Type Name         0
+Geo Join ID           0
+Geo Place Name        0
+Time Period           0
+Start_Date            0
+Data Value            0
+Message           19827
+
+Indicator counts:
+Name
+Fine particles (PM 2.5)                                   6768
+Nitrogen dioxide (NO2)                                    6768
+Ozone (O3)                                                2256
+Asthma emergency department visits due to PM2.5            480
+Asthma hospitalizations due to Ozone                       480
+Asthma emergency department visits due to Ozone            480
+Traffic density                                            321
+Traffic density (trucks)                                   321
+Traffic density (cars)                                     321
+Cardiac and respiratory deaths due to Ozone                240
+Respiratory hospitalizations due to PM2.5 (age 20+)        240
+Cardiovascular hospitalizations due to PM2.5 (age 40+)     240
+Deaths due to PM2.5                                        240
+Outdoor Air Toxics - Benzene                               203
+Outdoor Air Toxics - Formaldehyde                          203
+Boiler emissions (SO2)                                      96
+Boiler emissions (PM2.5)                                    88
+Boiler emissions (NOx)                                      82
+
+Geographic type counts:
+Geo Type Name
+UHF42       7602
+CD          7257
+UHF34       3876
+Borough      910
+Citywide     182
+
+Data Value summary:
+count    19827.000000
+mean        20.648771
+std         22.674663
+min          0.000000
+25%          8.640000
+50%         14.572177
+75%         25.925000
+max        424.700000
+
+Zero values: 13
+Negative values: 0

@@ -1,0 +1,19 @@
+Name,record_count
+Fine particles (PM 2.5),6768
+Nitrogen dioxide (NO2),6768
+Ozone (O3),2256
+Asthma emergency department visits due to PM2.5,480
+Asthma hospitalizations due to Ozone,480
+Asthma emergency department visits due to Ozone,480
+Traffic density,321
+Traffic density (trucks),321
+Traffic density (cars),321
+Cardiac and respiratory deaths due to Ozone,240
+Respiratory hospitalizations due to PM2.5 (age 20+),240
+Cardiovascular hospitalizations due to PM2.5 (age 40+),240
+Deaths due to PM2.5,240
+Outdoor Air Toxics - Benzene,203
+Outdoor Air Toxics - Formaldehyde,203
+Boiler emissions (SO2),96
+Boiler emissions (PM2.5),88
+Boiler emissions (NOx),82
