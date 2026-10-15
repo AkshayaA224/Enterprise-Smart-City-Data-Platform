@@ -1,0 +1,49 @@
+﻿TRAFFIC DATA EDA - FINDINGS
+===========================
+
+Dataset
+-------
+Records: 42,756
+Columns: 31
+Date range: 2012-01-08 to 2021-05-09
+Distinct dates: 608
+Exact duplicate rows: 0
+
+Data quality
+------------
+No negative values were found in the numeric hourly readings.
+Missing values are concentrated in afternoon and evening columns.
+The 12 afternoon/evening columns have 253 missing values each.
+The 4:00-5:00 AM column has the highest IQR outlier count: 4,975.
+IQR outliers are candidates for investigation, not automatically errors.
+
+Preliminary traffic observations
+--------------------------------
+The 3:00-4:00 AM column has a mean of approximately 117.62.
+The 4:00-5:00 PM column has a mean of approximately 661.12.
+These are source-column comparisons, not a fully validated hourly profile.
+
+Extreme-value investigation
+---------------------------
+The highest recorded hourly-column value is 10,532.
+It occurs on the Bronx River Parkway, southbound, on 2015-09-13.
+The same segment has 9 matching records across 9 distinct dates,
+from 2015-09-12 through 2015-09-20.
+The cause and measurement units of the high readings have not been verified.
+
+Limitations
+-----------
+Hourly source labels have inconsistent formatting and require validation.
+Zero readings may be legitimate and have not been replaced.
+No outliers or missing values have been modified.
+Traffic trends and causes should not be inferred until validation is complete.
+
+Generated reports
+-----------------
+traffic_eda_summary.txt
+traffic_missing_values.csv
+traffic_hourly_missing_values.csv
+traffic_hourly_column_means.csv
+traffic_outlier_zero_analysis.csv
+traffic_extreme_values.csv
+bronx_river_parkway_segment_analysis.csv

@@ -1,0 +1,172 @@
+TRAFFIC DATA - EXPLORATORY DATA ANALYSIS
+============================================================
+
+1. DATASET OVERVIEW
+Rows: 42756
+Columns: 31
+
+2. DATA TYPES
+ID                int64
+SegmentID         int64
+Roadway Name     object
+From             object
+To               object
+Direction        object
+Date             object
+12:00-1:00 AM    object
+1:00-2:00AM      object
+2:00-3:00AM      object
+3:00-4:00AM      object
+4:00-5:00AM      object
+5:00-6:00AM      object
+6:00-7:00AM      object
+7:00-8:00AM      object
+8:00-9:00AM      object
+9:00-10:00AM     object
+10:00-11:00AM    object
+11:00-12:00PM    object
+12:00-1:00PM     object
+1:00-2:00PM      object
+2:00-3:00PM      object
+3:00-4:00PM      object
+4:00-5:00PM      object
+5:00-6:00PM      object
+6:00-7:00PM      object
+7:00-8:00PM      object
+8:00-9:00PM      object
+9:00-10:00PM     object
+10:00-11:00PM    object
+11:00-12:00AM    object
+
+3. DESCRIPTIVE STATISTICS
+                 count unique         top   freq          mean             std    min      25%      50%       75%        max
+ID             42756.0    NaN         NaN    NaN    302.926841      504.422798    1.0     95.0    193.0     299.0     3393.0
+SegmentID      42756.0    NaN         NaN    NaN  498815.93912  1875302.773175  202.0  34027.0  75343.0  144881.0  9017050.0
+Roadway Name     42756   1276    BROADWAY    473           NaN             NaN    NaN      NaN      NaN       NaN        NaN
+From             42756   1717    Dead End    504           NaN             NaN    NaN      NaN      NaN       NaN        NaN
+To               42756   1745    Dead End    387           NaN             NaN    NaN      NaN      NaN       NaN        NaN
+Direction        42756     14          NB  12234           NaN             NaN    NaN      NaN      NaN       NaN        NaN
+Date             42756    608  10/12/2019    391           NaN             NaN    NaN      NaN      NaN       NaN        NaN
+12:00-1:00 AM    42752   2195          43    246           NaN             NaN    NaN      NaN      NaN       NaN        NaN
+1:00-2:00AM      42752   1760          20    353           NaN             NaN    NaN      NaN      NaN       NaN        NaN
+2:00-3:00AM      42752   1489          22    488           NaN             NaN    NaN      NaN      NaN       NaN        NaN
+3:00-4:00AM      42752   1371          21    570           NaN             NaN    NaN      NaN      NaN       NaN        NaN
+4:00-5:00AM      42752   1526          29    500           NaN             NaN    NaN      NaN      NaN       NaN        NaN
+5:00-6:00AM      42752   2074          33    351           NaN             NaN    NaN      NaN      NaN       NaN        NaN
+6:00-7:00AM      42752   2811          46    192           NaN             NaN    NaN      NaN      NaN       NaN        NaN
+7:00-8:00AM      42752   3214           0    139           NaN             NaN    NaN      NaN      NaN       NaN        NaN
+8:00-9:00AM      42752   3282           0    144           NaN             NaN    NaN      NaN      NaN       NaN        NaN
+9:00-10:00AM     42752   3215           0    184           NaN             NaN    NaN      NaN      NaN       NaN        NaN
+10:00-11:00AM    42753   3182           0    295           NaN             NaN    NaN      NaN      NaN       NaN        NaN
+11:00-12:00PM    42755   3222           0    383           NaN             NaN    NaN      NaN      NaN       NaN        NaN
+12:00-1:00PM     42503   3287           0    301           NaN             NaN    NaN      NaN      NaN       NaN        NaN
+1:00-2:00PM      42503   3363           0    346           NaN             NaN    NaN      NaN      NaN       NaN        NaN
+2:00-3:00PM      42503   3477           0    367           NaN             NaN    NaN      NaN      NaN       NaN        NaN
+3:00-4:00PM      42503   3542           0    385           NaN             NaN    NaN      NaN      NaN       NaN        NaN
+4:00-5:00PM      42503   3584           0    400           NaN             NaN    NaN      NaN      NaN       NaN        NaN
+5:00-6:00PM      42503   3537           0    405           NaN             NaN    NaN      NaN      NaN       NaN        NaN
+6:00-7:00PM      42503   3547           0    411           NaN             NaN    NaN      NaN      NaN       NaN        NaN
+7:00-8:00PM      42503   3377           0    422           NaN             NaN    NaN      NaN      NaN       NaN        NaN
+8:00-9:00PM      42503   3194           0    425           NaN             NaN    NaN      NaN      NaN       NaN        NaN
+9:00-10:00PM     42503   2956           0    451           NaN             NaN    NaN      NaN      NaN       NaN        NaN
+10:00-11:00PM    42503   2819           0    462           NaN             NaN    NaN      NaN      NaN       NaN        NaN
+11:00-12:00AM    42503   2566           0    483           NaN             NaN    NaN      NaN      NaN       NaN        NaN
+
+4. MISSING VALUES
+               missing_count  missing_percent
+5:00-6:00PM              253             0.59
+6:00-7:00PM              253             0.59
+7:00-8:00PM              253             0.59
+11:00-12:00AM            253             0.59
+10:00-11:00PM            253             0.59
+9:00-10:00PM             253             0.59
+8:00-9:00PM              253             0.59
+4:00-5:00PM              253             0.59
+1:00-2:00PM              253             0.59
+2:00-3:00PM              253             0.59
+3:00-4:00PM              253             0.59
+12:00-1:00PM             253             0.59
+6:00-7:00AM                4             0.01
+5:00-6:00AM                4             0.01
+4:00-5:00AM                4             0.01
+12:00-1:00 AM              4             0.01
+1:00-2:00AM                4             0.01
+2:00-3:00AM                4             0.01
+3:00-4:00AM                4             0.01
+8:00-9:00AM                4             0.01
+9:00-10:00AM               4             0.01
+7:00-8:00AM                4             0.01
+10:00-11:00AM              3             0.01
+11:00-12:00PM              1             0.00
+From                       0             0.00
+SegmentID                  0             0.00
+ID                         0             0.00
+Direction                  0             0.00
+To                         0             0.00
+Date                       0             0.00
+Roadway Name               0             0.00
+
+5. DUPLICATE ROWS
+Exact duplicate rows: 0
+
+6. DATE COVERAGE
+Unparseable dates: 0
+Earliest date: 2012-01-08 00:00:00
+Latest date: 2021-05-09 00:00:00
+Unique valid dates: 608
+
+7. HOURLY TRAFFIC VALUE SUMMARY
+                 count        mean         std  min    25%    50%    75%       max
+12:00-1:00 AM  42752.0  251.448423  407.435712  0.0   60.0  118.0  241.0   4805.00
+1:00-2:00AM    42752.0  178.591504  303.030296  0.0   38.0   79.0  171.0   4489.00
+2:00-3:00AM    42752.0  135.280318  242.091877  0.0   26.0   56.0  128.0   4818.00
+3:00-4:00AM    42752.0  117.619359  215.316979  0.0   22.0   47.0  110.0   4323.00
+4:00-5:00AM    42752.0  135.677980  249.763737  0.0   27.0   56.0  125.0   4469.00
+5:00-6:00AM    42752.0  206.655747  415.614033  0.0   42.0   85.0  182.0   6456.00
+6:00-7:00AM    42752.0  352.600510  621.374100  0.0   77.0  156.0  335.0   7513.00
+7:00-8:00AM    42752.0  491.184673  697.735616  0.0  133.0  270.0  538.0   9226.33
+8:00-9:00AM    42752.0  540.203605  703.696526  0.0  174.0  325.0  594.0   7899.00
+9:00-10:00AM   42752.0  524.477381  680.912007  0.0  184.0  317.0  555.0   6766.00
+10:00-11:00AM  42753.0  525.112156  673.894191  0.0  192.0  323.0  551.0   6430.00
+11:00-12:00PM  42755.0  545.755093  684.551994  0.0  206.0  342.0  576.0   6307.00
+12:00-1:00PM   42503.0  570.374774  700.645645  0.0  220.0  362.0  610.0   6330.00
+1:00-2:00PM    42503.0  590.530151  721.460544  0.0  230.0  377.0  633.0   6119.00
+2:00-3:00PM    42503.0  630.179376  758.610055  0.0  250.0  406.0  679.0   6996.00
+3:00-4:00PM    42503.0  657.691175  779.552761  0.0  260.0  425.0  713.0   7524.00
+4:00-5:00PM    42503.0  661.120886  776.312508  0.0  261.0  428.0  724.0   8683.00
+5:00-6:00PM    42503.0  657.712538  770.034661  0.0  258.0  424.0  724.0   9762.00
+6:00-7:00PM    42503.0  628.825612  764.796252  0.0  237.0  396.0  680.0   9879.00
+7:00-8:00PM    42503.0  570.346987  732.905268  0.0  204.0  344.0  598.5  10532.00
+8:00-9:00PM    42503.0  496.648166  678.326096  0.0  167.0  287.0  508.0   6659.00
+9:00-10:00PM   42503.0  428.457779  614.480940  0.0  133.0  235.0  427.0   5698.00
+10:00-11:00PM  42503.0  376.555067  565.197252  0.0  108.0  196.0  366.0   5460.00
+11:00-12:00AM  42503.0  315.806014  493.563207  0.0   82.0  157.0  303.0   5027.00
+
+8. HOURLY COLUMN VALIDATION
+Hourly columns are identified by excluding known identifier columns. Their labels and mappings must be checked because source labels may have inconsistent spacing or formatting.
+
+Hourly columns detected:
+12:00-1:00 AM
+1:00-2:00AM
+2:00-3:00AM
+3:00-4:00AM
+4:00-5:00AM
+5:00-6:00AM
+6:00-7:00AM
+7:00-8:00AM
+8:00-9:00AM
+9:00-10:00AM
+10:00-11:00AM
+11:00-12:00PM
+12:00-1:00PM
+1:00-2:00PM
+2:00-3:00PM
+3:00-4:00PM
+4:00-5:00PM
+5:00-6:00PM
+6:00-7:00PM
+7:00-8:00PM
+8:00-9:00PM
+9:00-10:00PM
+10:00-11:00PM
+11:00-12:00AM

@@ -33,7 +33,3 @@
 - Project changes committed.
 - Raw data and environment-specific files excluded through .gitignore.
 
-## 7. Next Workstream
-- Implement Kafka-based real-time ingestion separately from the
-  existing batch ETL pipelines.
-- Validate the real-time path without overwriting existing warehouse data.
